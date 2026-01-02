@@ -5080,6 +5080,16 @@ MachoMenuButton(VIPTabSections[2], "Handcuff / Uncuff", function()
     MachoMenuNotification("Action Executed", "Handcuff status toggled!")
 end)
 
+MachoMenuButton(PlayerTabSections[2], "Fill Hunger & Thirst", function()
+    MachoInjectResource2(3, CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
+        local function FillStats()
+            TriggerEvent('esx_status:set', 'hunger', 1000000)
+            TriggerEvent('esx_status:set', 'thirst', 1000000)
+        end
+
+        FillStats()
+    ]])
+end)
 
 MachoMenuCheckbox(VIPTabSections[3], "Invisible",
     function()
