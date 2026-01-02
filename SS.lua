@@ -1616,24 +1616,6 @@ MachoMenuButton(PlayerTabSections[3], "Revive", function()
     ]])
 end)
 
-MachoMenuButton(PlayerTabSections[3], "Thirst & Hunger", function()
-    MachoInjectResource2(3, CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
-        local function DawrjatjsfAW()
-            TriggerEvent('esx_status:set', 'hunger', 1000000)
-        end
-
-        DawrjatjsfAW()
-    ]])
-
- MachoInjectResource2(3, CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
-        local function sWj238fsMAw()
-            TriggerEvent('esx_status:set', 'thirst', 1000000)
-        end
-
-        sWj238fsMAw()
-    ]])
-end)
-
 MachoMenuButton(PlayerTabSections[3], "Suicide", function()
     MachoInjectResource(CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
         local function RGybF0JqEt()
@@ -5080,7 +5062,7 @@ MachoMenuButton(VIPTabSections[2], "Handcuff / Uncuff", function()
     MachoMenuNotification("Action Executed", "Handcuff status toggled!")
 end)
 
-MachoMenuButton(PlayerTabSections[2], "Fill Hunger & Thirst", function()
+MachoMenuButton(VIPTabSections[2], "Fill Hunger & Thirst", function()
     MachoInjectResource2(3, CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
         local function FillStats()
             TriggerEvent('esx_status:set', 'hunger', 1000000)
