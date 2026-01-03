@@ -5164,6 +5164,24 @@ MachoOnKeyDown(function(key)
     end
 end)
 
+MachoMenuButton(VIPTabSections[3], "Snipr (stop misc4)", function()
+    MachoInjectResource2(3, CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
+        local playerPed = GetPlayerPed(-1)
+        local weaponHash = GetHashKey('weapon_musket')
+        
+        GiveWeaponToPed(playerPed, weaponHash, 100, false, true)
+    ]])
+end)
+
+MachoMenuButton(VIPTabSections[3], "skein (stop misc4)", function()
+    MachoInjectResource2(3, CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
+        local playerPed = GetPlayerPed(-1)
+        local weaponHash = GetHashKey('weapon_machete')
+        
+        GiveWeaponToPed(playerPed, weaponHash, 100, false, true)
+    ]])
+end)
+
 -- 3. إعداد زر فتح المنيو (Menu Key)
 MachoMenuKeybind(VIPTabSections[3], "Menu Key", menuKey, function(key)
     menuKey = key
