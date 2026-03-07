@@ -50,7 +50,7 @@ MachoMenuSetAccent(MenuWindow, 79, 50, 50)
 -- CreateRainbowInterface()
 MachoMenuText(MenuWindow,"AL HUNTER v2")
 local VIPTab = MachoMenuAddTab(MenuWindow, "self")
-local VehicleTab = MachoMenuAddTab(MenuWindow, "cars")
+local VehicleTab = MachoMenuAddTab(MenuWindow, "cars & item")
 
 -- Tab Content
 local function PlayerTabContent(tab)
