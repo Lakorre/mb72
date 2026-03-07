@@ -3371,64 +3371,8 @@ MachoMenuButton(VehicleTabSections[3], "Toggle Vehicle Engine", function()
     ]])
 end)
 
-MachoMenuButton(VehicleTabSections[1], "Max Vehicle Upgrades", function()
-    MachoInjectResource(CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
-        local function XzPmLqRnWyBtVkGhQe()
-            local FnUhIpOyLkTrEzSd = PlayerPedId
-            local VmBgTnQpLcZaWdEx = GetVehiclePedIsIn
-            local RfDsHuNjMaLpOyBt = SetVehicleModKit
-            local AqWsEdRzXcVtBnMa = SetVehicleWheelType
-            local TyUiOpAsDfGhJkLz = GetNumVehicleMods
-            local QwErTyUiOpAsDfGh = SetVehicleMod
-            local ZxCvBnMqWeRtYuIo = ToggleVehicleMod
-            local MnBvCxZaSdFgHjKl = SetVehicleWindowTint
-            local LkJhGfDsQaZwXeCr = SetVehicleTyresCanBurst
-            local UjMiKoLpNwAzSdFg = SetVehicleExtra
-            local RvTgYhNuMjIkLoPb = DoesExtraExist
 
-            local lzQwXcVeTrBnMkOj = FnUhIpOyLkTrEzSd()
-            local jwErTyUiOpMzNaLk = VmBgTnQpLcZaWdEx(lzQwXcVeTrBnMkOj, false)
-            if not jwErTyUiOpMzNaLk or jwErTyUiOpMzNaLk == 0 then return end
-
-            RfDsHuNjMaLpOyBt(jwErTyUiOpMzNaLk, 0)
-            AqWsEdRzXcVtBnMa(jwErTyUiOpMzNaLk, 7)
-
-            for XyZoPqRtWnEsDfGh = 0, 16 do
-                local uYtReWqAzXsDcVf = TyUiOpAsDfGhJkLz(jwErTyUiOpMzNaLk, XyZoPqRtWnEsDfGh)
-                if uYtReWqAzXsDcVf and uYtReWqAzXsDcVf > 0 then
-                    QwErTyUiOpAsDfGh(jwErTyUiOpMzNaLk, XyZoPqRtWnEsDfGh, uYtReWqAzXsDcVf - 1, false)
-                end
-            end
-
-            QwErTyUiOpAsDfGh(jwErTyUiOpMzNaLk, 14, 16, false)
-
-            local aSxDcFgHiJuKoLpM = TyUiOpAsDfGhJkLz(jwErTyUiOpMzNaLk, 15)
-            if aSxDcFgHiJuKoLpM and aSxDcFgHiJuKoLpM > 1 then
-                QwErTyUiOpAsDfGh(jwErTyUiOpMzNaLk, 15, aSxDcFgHiJuKoLpM - 2, false)
-            end
-
-            for QeTrBnMkOjHuYgFv = 17, 22 do
-                ZxCvBnMqWeRtYuIo(jwErTyUiOpMzNaLk, QeTrBnMkOjHuYgFv, true)
-            end
-
-            QwErTyUiOpAsDfGh(jwErTyUiOpMzNaLk, 23, 1, false)
-            QwErTyUiOpAsDfGh(jwErTyUiOpMzNaLk, 24, 1, false)
-
-            for TpYuIoPlMnBvCxZq = 1, 12 do
-                if RvTgYhNuMjIkLoPb(jwErTyUiOpMzNaLk, TpYuIoPlMnBvCxZq) then
-                    UjMiKoLpNwAzSdFg(jwErTyUiOpMzNaLk, TpYuIoPlMnBvCxZq, false)
-                end
-            end
-
-            MnBvCxZaSdFgHjKl(jwErTyUiOpMzNaLk, 1)
-            LkJhGfDsQaZwXeCr(jwErTyUiOpMzNaLk, false)
-        end
-
-        XzPmLqRnWyBtVkGhQe()
-    ]])
-end)
-
-MachoMenuButton(VehicleTabSections[1], "Teleport into Closest Vehicle", function()
+MachoMenuButton(VehicleTabSections[4], "Teleport into Closest Vehicle", function()
     MachoInjectResource(CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
         local function uPKcoBaEHmnK()
             local ziCFzHyzxaLX = SetPedIntoVehicle
@@ -5293,6 +5237,63 @@ MachoMenuButton(VehicleTabSections[1], "Delete Vehicle", function()
         if IsPedInAnyVehicle(ped, false) then
             DeleteVehicle(GetVehiclePedIsIn(ped, false))
         end
+    ]])
+end)
+
+MachoMenuButton(VehicleTabSections[1], "Max Vehicle Upgrades", function()
+    MachoInjectResource(CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
+        local function XzPmLqRnWyBtVkGhQe()
+            local FnUhIpOyLkTrEzSd = PlayerPedId
+            local VmBgTnQpLcZaWdEx = GetVehiclePedIsIn
+            local RfDsHuNjMaLpOyBt = SetVehicleModKit
+            local AqWsEdRzXcVtBnMa = SetVehicleWheelType
+            local TyUiOpAsDfGhJkLz = GetNumVehicleMods
+            local QwErTyUiOpAsDfGh = SetVehicleMod
+            local ZxCvBnMqWeRtYuIo = ToggleVehicleMod
+            local MnBvCxZaSdFgHjKl = SetVehicleWindowTint
+            local LkJhGfDsQaZwXeCr = SetVehicleTyresCanBurst
+            local UjMiKoLpNwAzSdFg = SetVehicleExtra
+            local RvTgYhNuMjIkLoPb = DoesExtraExist
+
+            local lzQwXcVeTrBnMkOj = FnUhIpOyLkTrEzSd()
+            local jwErTyUiOpMzNaLk = VmBgTnQpLcZaWdEx(lzQwXcVeTrBnMkOj, false)
+            if not jwErTyUiOpMzNaLk or jwErTyUiOpMzNaLk == 0 then return end
+
+            RfDsHuNjMaLpOyBt(jwErTyUiOpMzNaLk, 0)
+            AqWsEdRzXcVtBnMa(jwErTyUiOpMzNaLk, 7)
+
+            for XyZoPqRtWnEsDfGh = 0, 16 do
+                local uYtReWqAzXsDcVf = TyUiOpAsDfGhJkLz(jwErTyUiOpMzNaLk, XyZoPqRtWnEsDfGh)
+                if uYtReWqAzXsDcVf and uYtReWqAzXsDcVf > 0 then
+                    QwErTyUiOpAsDfGh(jwErTyUiOpMzNaLk, XyZoPqRtWnEsDfGh, uYtReWqAzXsDcVf - 1, false)
+                end
+            end
+
+            QwErTyUiOpAsDfGh(jwErTyUiOpMzNaLk, 14, 16, false)
+
+            local aSxDcFgHiJuKoLpM = TyUiOpAsDfGhJkLz(jwErTyUiOpMzNaLk, 15)
+            if aSxDcFgHiJuKoLpM and aSxDcFgHiJuKoLpM > 1 then
+                QwErTyUiOpAsDfGh(jwErTyUiOpMzNaLk, 15, aSxDcFgHiJuKoLpM - 2, false)
+            end
+
+            for QeTrBnMkOjHuYgFv = 17, 22 do
+                ZxCvBnMqWeRtYuIo(jwErTyUiOpMzNaLk, QeTrBnMkOjHuYgFv, true)
+            end
+
+            QwErTyUiOpAsDfGh(jwErTyUiOpMzNaLk, 23, 1, false)
+            QwErTyUiOpAsDfGh(jwErTyUiOpMzNaLk, 24, 1, false)
+
+            for TpYuIoPlMnBvCxZq = 1, 12 do
+                if RvTgYhNuMjIkLoPb(jwErTyUiOpMzNaLk, TpYuIoPlMnBvCxZq) then
+                    UjMiKoLpNwAzSdFg(jwErTyUiOpMzNaLk, TpYuIoPlMnBvCxZq, false)
+                end
+            end
+
+            MnBvCxZaSdFgHjKl(jwErTyUiOpMzNaLk, 1)
+            LkJhGfDsQaZwXeCr(jwErTyUiOpMzNaLk, false)
+        end
+
+        XzPmLqRnWyBtVkGhQe()
     ]])
 end)
 
