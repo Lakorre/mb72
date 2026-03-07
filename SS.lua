@@ -3072,7 +3072,7 @@ end)
 
 -- Vehicle Tab
 
-MachoMenuCheckbox(VehicleTabSections[1], "Easy Handling", function()
+MachoMenuCheckbox(VehicleTabSections[4], "Easy Handling", function()
     MachoInjectResource(CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
         if NvGhJkLpOiUy == nil then NvGhJkLpOiUy = false end
         NvGhJkLpOiUy = true
@@ -3121,7 +3121,7 @@ end, function()
 end)
 
 
-MachoMenuCheckbox(VehicleTabSections[1], "Unlimited Fuel", function()
+MachoMenuCheckbox(VehicleTabSections[4], "Unlimited Fuel", function()
     MachoInjectResource(CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
         if BlNkJmLzXcVb == nil then BlNkJmLzXcVb = false end
         BlNkJmLzXcVb = true
@@ -3156,18 +3156,8 @@ end, function()
     ]])
 end)
 
--- إنشاء الزر داخل القسم الثالث (SectionThree)
-MachoMenuButton(VehicleTabSections[1], "Delete Vehicle", function()
-    -- الكود الخاص بحذف السيارة
-    MachoInjectResource("any", [[
-        local ped = PlayerPedId()
-        if IsPedInAnyVehicle(ped, false) then
-            DeleteVehicle(GetVehiclePedIsIn(ped, false))
-        end
-    ]])
-end)
 
-MachoMenuButton(VehicleTabSections[1], "Repair Vehicle", function()
+MachoMenuButton(VehicleTabSections[4], "Repair Vehicle", function()
     MachoInjectResource(CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
         local function FgN7LqxZyP()
             local aBcD = PlayerPedId
@@ -3188,7 +3178,7 @@ MachoMenuButton(VehicleTabSections[1], "Repair Vehicle", function()
 end)
 
 local VehicleSpawnerBox = MachoMenuInputbox(VehicleTabSections[2], "Vehicle Model:", "Enter car name...")
-MachoMenuButton(VehicleTabSections[2], "Spawn Car", function()
+MachoMenuButton(VehicleTabSections[4], "Spawn Car", function()
     local VehicleModel = MachoMenuGetInputbox(VehicleSpawnerBox)
 
     local waveShieldRunning = GetResourceState("WaveShield") == "started"
@@ -3279,7 +3269,7 @@ end)
 local plateInputBox = MachoMenuInputbox(VehicleTabSections[2], "Plate Change", "Enter plate text...")
 
 -- 2. إنشاء الزر لتنفيذ الثغرة على كل المركبات المحيطة
-MachoMenuButton(VehicleTabSections[2], "Change", function()
+MachoMenuButton(VehicleTabSections[4], "Change", function()
     -- الحصول على اللوحة من المربع
     local targetPlate = MachoMenuGetInputbox(plateInputBox)
     
@@ -5293,40 +5283,7 @@ MachoMenuButton(SettingTabSections[1], "close", function()
     MachoMenuDestroy(MenuWindow)
 end)
 
-MachoMenuCheckbox(VehicleTabSections[4], "Unlimited Fuel", function()
-    MachoInjectResource(CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
-        if BlNkJmLzXcVb == nil then BlNkJmLzXcVb = false end
-        BlNkJmLzXcVb = true
 
-        local function LqWyXpR3tV()
-            local TmPlKoMiJnBg = CreateThread
-            local ZxCvBnMaSdFg = PlayerPedId
-            local YhUjIkOlPlMn = IsPedInAnyVehicle
-            local VcXzQwErTyUi = GetVehiclePedIsIn
-            local KpLoMkNjBhGt = DoesEntityExist
-            local JkLzXcVbNmAs = SetVehicleFuelLevel
-
-            TmPlKoMiJnBg(function()
-                while BlNkJmLzXcVb and not Unloaded do
-                    local ped = ZxCvBnMaSdFg()
-                    if YhUjIkOlPlMn(ped, false) then
-                        local veh = VcXzQwErTyUi(ped, false)
-                        if KpLoMkNjBhGt(veh) then
-                            JkLzXcVbNmAs(veh, 100.0)
-                        end
-                    end
-                    Wait(100)
-                end
-            end)
-        end
-
-        LqWyXpR3tV()
-    ]])
-end, function()
-    MachoInjectResource(CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
-        BlNkJmLzXcVb = false
-    ]])
-end)
 
 -- إنشاء الزر داخل القسم الثالث (SectionThree)
 MachoMenuButton(VehicleTabSections[4], "Delete Vehicle", function()
