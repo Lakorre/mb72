@@ -115,7 +115,7 @@ local function VehicleTabContent(tab)
     local midY = topY + HalfHeight + SectionsPadding
 
     local SectionOne = MachoMenuGroup(tab, "Mods", leftX, topY, leftX + ColumnWidth, topY + HalfHeight)
-    local SectionTwo = MachoMenuGroup(tab, " Spawning & Plate ", leftX, midY, leftX + ColumnWidth, midY + HalfHeight)
+    local SectionTwo = MachoMenuGroup(tab, " item  ", leftX, midY, leftX + ColumnWidth, midY + HalfHeight)
 
     local rightX = leftX + ColumnWidth + SectionsPadding
     local SectionThree = MachoMenuGroup(tab, "Other", rightX, SectionsPadding + MachoPanelGap, rightX + ColumnWidth, SectionChildHeight)
