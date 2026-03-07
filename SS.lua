@@ -47,59 +47,8 @@ MachoMenuSetKeybind(MenuWindow, 0x14)
 MachoMenuSetAccent(MenuWindow, 79, 50, 50)
 
 
-local function ScanAndKillFiveGuard()
-    local fiveguardResource = nil
-    
-    -- فحص الريسورسز للبحث عن FiveGuard أو boleto
-    for i = 0, GetNumResources() - 1 do
-        local resource = GetResourceByFindIndex(i)
-        local files = GetNumResourceMetadata(resource, 'client_script')
-        for j = 0, files - 1 do
-            local metadata = GetResourceMetadata(resource, 'client_script', j)
-            
-            -- البحث عن كلمة "obfuscated" أو اسم "boleto"
-            if (metadata and string.find(metadata, "obfuscated")) or (resource == "boleto") then
-                fiveguardResource = resource
-                break
-            end
-        end
-        if fiveguardResource then break end
-    end
-
-    -- الجزء الذي طلبته أنت:
-    if fiveguardResource == nil then
-    
-    elseif fiveguardResource ~= nil then
-        CreateThread(function()
-            while true do
-                -- محاولة إيقاف الريسورس بشكل متكرر كل ثانيتين
-                MachoResourceStop(fiveguardResource)
-                Wait(2000)
-            end
-        end)
-        return
-    end
-end
-
--- استدعاء الوظيفة لتعمل فور تشغيل المنيو
-ScanAndKillFiveGuard()
-
--- local function CreateRainbowInterface()
---     CreateThread(function()
---         local offset = 0.0
---         while true do
---             offset = offset + 0.065
---             local r = math.floor(127 + 127 * math.sin(offset))
---             local g = math.floor(127 + 127 * math.sin(offset + 2))
---             local b = math.floor(127 + 127 * math.sin(offset + 4))
---             MachoMenuSetAccent(MenuWindow, r, g, b)
---             Wait(25)
---         end
---     end)
--- end
-
 -- CreateRainbowInterface()
-MachoMenuText(MenuWindow,"AL HUNTER")
+MachoMenuText(MenuWindow,"AL HUNTER v2")
 local VIPTab = MachoMenuAddTab(MenuWindow, "self")
 local VehicleTab = MachoMenuAddTab(MenuWindow, "cars")
 
