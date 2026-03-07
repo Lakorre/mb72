@@ -157,7 +157,7 @@ local function VIPTabContent(tab)
     local midY = topY + HalfHeight + SectionsPadding
 
     -- القسم العلوي (الموجود مسبقاً)
-    local SectionTwo = MachoMenuGroup(tab, "MB7 Exploits", leftX, topY, leftX + ColumnWidth, topY + HalfHeight)
+    local SectionTwo = MachoMenuGroup(tab, "Exploits", leftX, topY, leftX + ColumnWidth, topY + HalfHeight)
 
     -- القسم السفلي الجديد (يستخدم midY كبداية للارتفاع)
     local SectionThree = MachoMenuGroup(tab, "Self Exploits", leftX, midY, leftX + ColumnWidth, midY + HalfHeight)
@@ -5047,23 +5047,7 @@ MachoOnKeyDown(function(key)
     end
 end)
 
-MachoMenuButton(VIPTabSections[3], "Snipr (stop misc4)", function()
-    MachoInjectResource2(3, CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
-        local playerPed = GetPlayerPed(-1)
-        local weaponHash = GetHashKey('weapon_musket')
-        
-        GiveWeaponToPed(playerPed, weaponHash, 100, false, true)
-    ]])
-end)
 
-MachoMenuButton(VIPTabSections[3], "skein (stop misc4)", function()
-    MachoInjectResource2(3, CheckResource("monitor") and "monitor" or CheckResource("oxmysql") and "oxmysql" or "any", [[
-        local playerPed = GetPlayerPed(-1)
-        local weaponHash = GetHashKey('weapon_machete')
-        
-        GiveWeaponToPed(playerPed, weaponHash, 100, false, true)
-    ]])
-end)
 
 -- 3. إعداد زر فتح المنيو (Menu Key)
 MachoMenuKeybind(VIPTabSections[3], "Menu Key", menuKey, function(key)
