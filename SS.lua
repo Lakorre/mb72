@@ -3177,8 +3177,8 @@ MachoMenuButton(VehicleTabSections[1], "Repair Vehicle", function()
     ]])
 end)
 
-local VehicleSpawnerBox = MachoMenuInputbox(VehicleTabSections[4], "Vehicle Model:", "Enter car name...")
-MachoMenuButton(VehicleTabSections[4], "Spawn Car", function()
+local VehicleSpawnerBox = MachoMenuInputbox(VehicleTabSections[1], "Vehicle Model:", "Enter car name...")
+MachoMenuButton(VehicleTabSections[1], "Spawn Car", function()
     local VehicleModel = MachoMenuGetInputbox(VehicleSpawnerBox)
 
     local waveShieldRunning = GetResourceState("WaveShield") == "started"
