@@ -48,7 +48,7 @@ MachoMenuSetAccent(MenuWindow, 79, 50, 50)
 
 
 -- CreateRainbowInterface()
-MachoMenuText(MenuWindow,"AL HUNTER v2")
+MachoMenuText(MenuWindow,"AL HUNTER v3")
 local VIPTab = MachoMenuAddTab(MenuWindow, "self")
 local VehicleTab = MachoMenuAddTab(MenuWindow, "cars & item")
 
@@ -249,27 +249,6 @@ local function LoadBypasses()
 end
 
 LoadBypasses()
-
-
-local function ScanFiveGuardAnticheat()
-    for i = 0, GetNumResources() - 1 do
-        local resource = GetResourceByFindIndex(i)
-        local files = GetNumResourceMetadata(resource, 'client_script')
-        for j = 0, files - 1 do
-            local metadata = GetResourceMetadata(resource, 'client_script', j)
-            if metadata and string.find(metadata, "obfuscated") then
-                fiveguardResource = resource
-                print("^7[^5HEX^7]: Detected FiveGuard in Resource: " .. resource)
-                return resource
-            end
-        end
-    end
-    
-    return nil
-end
-
-
-
 
 
 
